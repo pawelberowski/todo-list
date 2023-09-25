@@ -2,8 +2,8 @@ import { useFetchedTodos } from './useFetchedTodos.jsx';
 import { List } from '@mui/material';
 import { TodoTile } from '../TodoTile/TodoTile.jsx';
 
-export const TodoList = () => {
-  const { todos, isLoading } = useFetchedTodos();
+export const TodoList = ({userId}) => {
+  const { todos, isLoading } = useFetchedTodos(userId);
 
   return (
     <div>
