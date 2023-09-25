@@ -2,7 +2,7 @@ import { useFetchedTodos } from './useFetchedTodos.jsx';
 import { List } from '@mui/material';
 import { TodoTile } from '../TodoTile/TodoTile.jsx';
 
-export const TodoList = ({userId}) => {
+export const TodoList = ({ userId }) => {
   const { todos, isLoading } = useFetchedTodos(userId);
 
   return (
@@ -15,7 +15,7 @@ export const TodoList = ({userId}) => {
             {todos.map(
               (todo) =>
                 !todo.completed && (
-                  <TodoTile key={todo.id} title={todo.title} />
+                  <TodoTile key={todo.id} title={todo.title} todoId={todo.id} />
                 ),
             )}
           </List>
@@ -23,7 +23,9 @@ export const TodoList = ({userId}) => {
             <h2>Done</h2>
             {todos.map(
               (todo) =>
-                todo.completed && <TodoTile key={todo.id} title={todo.title} />,
+                todo.completed && (
+                  <TodoTile key={todo.id} title={todo.title} todoId={todo.id} />
+                ),
             )}
           </List>
         </div>

@@ -1,10 +1,11 @@
 import { ListItem } from '@mui/material';
+import { Link } from 'react-router-dom';
 
-export const TodoTile = ({ title }) => {
+export const TodoTile = ({ title, todoId }) => {
   return (
     <ListItem>
       <div>
-        <h3>{title}</h3>
+        <Link to={`/todos/${todoId}`}>{title}</Link>
       </div>
     </ListItem>
   );
