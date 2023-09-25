@@ -5,7 +5,6 @@ import { TodoDetails } from './TodoDetails/TodoDetails.jsx';
 export const App = () => {
   return (
     <>
-      <h1>React Router</h1>
       <BrowserRouter>
         <Routes>
           <Route path="/todos" element={<TodoList />} />
