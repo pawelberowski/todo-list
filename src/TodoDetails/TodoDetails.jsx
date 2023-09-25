@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { GoBackButton } from './GoBackButton/GoBackButton.jsx';
 
 export const TodoDetails = () => {
   const { id } = useParams();
@@ -17,6 +18,7 @@ export const TodoDetails = () => {
         <>
           <h2>{`Task:${todo.title}`}</h2>
           <p>{todo.completed ? 'Done' : 'In progress'}</p>
+          <GoBackButton />
         </>
       )}
     </div>
