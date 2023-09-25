@@ -1,15 +1,21 @@
 import { useFetchedTodos } from './useFetchedTodos.jsx';
 import { List } from '@mui/material';
 import { TodoTile } from './TodoTile/TodoTile.jsx';
-import { AddTaskButton } from './AddTaskButton/AddTaskButton.jsx';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { postNewTask } from './AddTask/postNewTask.jsx';
+import { AddTask } from './AddTask/AddTask.jsx';
 
 export const TodoList = ({ userId }) => {
-  const { todos, isLoading } = useFetchedTodos(userId);
+  const { todos, setTodos, isLoading } = useFetchedTodos(userId);
+  const [taskTitle, setTaskTitle] = useState('');
 
-  let navigate = useNavigate();
-  const handleAddTask = () => {
-    navigate('/addtask');
+  const handleTitleChange = (event) => {
+    setTaskTitle(event.target.value);
+  };
+  const handleSubmit = () => {
+    postNewTask(userId, taskTitle).then((newTask) => {
+      setTodos([newTask, ...todos]);
+    });
   };
 
   return (
@@ -17,7 +23,10 @@ export const TodoList = ({ userId }) => {
       {isLoading && <p>Loading...</p>}
       {!isLoading && (
         <div>
-          <AddTaskButton onClick={handleAddTask}></AddTaskButton>
+          <AddTask
+            handleTitleChange={handleTitleChange}
+            handleSubmit={handleSubmit}
+          />
           <h2>To do</h2>
           <List>
             {todos.map(

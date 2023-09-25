@@ -20,6 +20,7 @@ export function useFetchedTodos(userId) {
 
   return {
     todos,
+    setTodos,
     isLoading,
   };
 }

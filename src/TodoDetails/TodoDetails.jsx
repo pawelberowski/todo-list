@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { GoBackButton } from './GoBackButton/GoBackButton.jsx';
+import { GoBackButton } from '../GoBackButton/GoBackButton.jsx';
 
 export const TodoDetails = () => {
   const { id } = useParams();
