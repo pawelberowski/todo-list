@@ -14,6 +14,9 @@ export const TodoList = ({ userId }) => {
   };
   const handleSubmit = () => {
     postNewTask(userId, taskTitle).then((newTask) => {
+      if (!taskTitle) {
+        return;
+      }
       setTodos([newTask, ...todos]);
     });
   };
