@@ -35,7 +35,13 @@ export const TodoList = ({ userId }) => {
             {todos.map(
               (todo) =>
                 !todo.completed && (
-                  <TodoTile key={todo.id} title={todo.title} todoId={todo.id} />
+                  <TodoTile
+                    key={todo.id}
+                    title={todo.title}
+                    todoId={todo.id}
+                    todos={todos}
+                    setTodos={setTodos}
+                  />
                 ),
             )}
           </List>
@@ -44,7 +50,13 @@ export const TodoList = ({ userId }) => {
             {todos.map(
               (todo) =>
                 todo.completed && (
-                  <TodoTile key={todo.id} title={todo.title} todoId={todo.id} />
+                  <TodoTile
+                    key={todo.id}
+                    title={todo.title}
+                    todoId={todo.id}
+                    todos={todos}
+                    setTodos={setTodos}
+                  />
                 ),
             )}
           </List>
