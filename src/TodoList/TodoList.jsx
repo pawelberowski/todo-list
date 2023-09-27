@@ -30,39 +30,41 @@ export const TodoList = ({ userId }) => {
             handleTitleChange={handleTitleChange}
             handleSubmit={handleSubmit}
           />
-          <h2>To do</h2>
-          <List>
-            {todos.map(
-              (todo) =>
-                !todo.completed && (
-                  <TodoTile
-                    key={todo.id}
-                    title={todo.title}
-                    todoId={todo.id}
-                    todos={todos}
-                    setTodos={setTodos}
-                    todoStatus={todo.completed}
-                    color={'success'}
-                  />
-                ),
-            )}
-          </List>
-          <List>
-            <h2>Done</h2>
-            {todos.map(
-              (todo) =>
-                todo.completed && (
-                  <TodoTile
-                    key={todo.id}
-                    title={todo.title}
-                    todoId={todo.id}
-                    todos={todos}
-                    setTodos={setTodos}
-                    todoStatus={todo.completed}
-                  />
-                ),
-            )}
-          </List>
+          <div className="lists-wrapper">
+            <List>
+              <h2>To do</h2>
+              {todos.map(
+                (todo) =>
+                  !todo.completed && (
+                    <TodoTile
+                      key={todo.id}
+                      title={todo.title}
+                      todoId={todo.id}
+                      todos={todos}
+                      setTodos={setTodos}
+                      todoStatus={todo.completed}
+                      color={'success'}
+                    />
+                  ),
+              )}
+            </List>
+            <List>
+              <h2>Done</h2>
+              {todos.map(
+                (todo) =>
+                  todo.completed && (
+                    <TodoTile
+                      key={todo.id}
+                      title={todo.title}
+                      todoId={todo.id}
+                      todos={todos}
+                      setTodos={setTodos}
+                      todoStatus={todo.completed}
+                    />
+                  ),
+              )}
+            </List>
+          </div>
         </div>
       )}
     </div>

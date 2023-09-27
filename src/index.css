@@ -5,5 +5,27 @@
 }
 
 .task-title {
-  font-size: x-large;
+  font-size: xx-large;
+  text-decoration: none;
+  color: black;
+}
+
+.lists-wrapper {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.add-task {
+  display: flex;
+  justify-items: flex-start;
+  padding: 10px;
+}
+
+.add-task Button {
+  margin-left: 10px;
+}
+
+.add-task input {
+  margin-left: 10px;
 }
