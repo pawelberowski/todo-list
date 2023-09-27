@@ -41,6 +41,8 @@ export const TodoList = ({ userId }) => {
                     todoId={todo.id}
                     todos={todos}
                     setTodos={setTodos}
+                    todoStatus={todo.completed}
+                    color={'success'}
                   />
                 ),
             )}
@@ -56,6 +58,7 @@ export const TodoList = ({ userId }) => {
                     todoId={todo.id}
                     todos={todos}
                     setTodos={setTodos}
+                    todoStatus={todo.completed}
                   />
                 ),
             )}
