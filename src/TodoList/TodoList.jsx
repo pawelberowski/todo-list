@@ -40,14 +40,14 @@ export const TodoList = () => {
               <h2>To do</h2>
               {todos.map(
                 (todo) =>
-                  !todo.completed && (
+                  !todo.isCompleted && (
                     <TodoTile
                       key={todo.id}
                       title={todo.title}
                       todoId={todo.id}
                       todos={todos}
                       setTodos={setTodos}
-                      todoStatus={todo.completed}
+                      todoStatus={todo.isCompleted}
                       color={'success'}
                     />
                   ),
@@ -57,14 +57,14 @@ export const TodoList = () => {
               <h2>Done</h2>
               {todos.map(
                 (todo) =>
-                  todo.completed && (
+                  todo.isCompleted && (
                     <TodoTile
                       key={todo.id}
                       title={todo.title}
                       todoId={todo.id}
                       todos={todos}
                       setTodos={setTodos}
-                      todoStatus={todo.completed}
+                      todoStatus={todo.isCompleted}
                     />
                   ),
               )}

@@ -19,7 +19,7 @@ export const TodoTile = ({
       const newTodos = [
         ...todos.map((todo) => {
           if (todo.id === todoId) {
-            todo.completed = newStatus;
+            todo.isCompleted = newStatus;
           }
           return todo;
         }),

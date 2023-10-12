@@ -1,9 +1,12 @@
 export function changeStatus(taskId, newStatus) {
-  return fetch(`https://jsonplaceholder.typicode.com/todos/${taskId}`, {
+  return fetch(`${import.meta.env.VITE_APP_API_URL}/tasks/${taskId}`, {
     method: 'PATCH',
     body: JSON.stringify({
-      completed: newStatus,
+      isCompleted: newStatus,
     }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
   })
     .then((response) => response.json())
     .then((data) => {
