@@ -5,15 +5,19 @@ import { useState } from 'react';
 import { postNewTask } from './AddTask/postNewTask.jsx';
 import { AddTask } from './AddTask/AddTask.jsx';
 
-export const TodoList = ({ userId }) => {
-  const { todos, setTodos, isLoading } = useFetchedTodos(userId);
+export const TodoList = () => {
+  const { todos, setTodos, isLoading } = useFetchedTodos();
   const [taskTitle, setTaskTitle] = useState('');
+  const [taskDescription, setTaskDescription] = useState(null);
 
   const handleTitleChange = (event) => {
     setTaskTitle(event.target.value);
   };
+  const handleDescriptionChange = (event) => {
+    setTaskDescription(event.target.value);
+  };
   const handleSubmit = () => {
-    postNewTask(userId, taskTitle).then((newTask) => {
+    postNewTask(taskTitle, taskDescription).then((newTask) => {
       if (!taskTitle) {
         return;
       }
@@ -28,6 +32,7 @@ export const TodoList = ({ userId }) => {
         <div>
           <AddTask
             handleTitleChange={handleTitleChange}
+            handleDescriptionChange={handleDescriptionChange}
             handleSubmit={handleSubmit}
           />
           <div className="lists-wrapper">

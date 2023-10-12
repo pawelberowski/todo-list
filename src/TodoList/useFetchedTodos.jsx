@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 
-export function useFetchedTodos(userId) {
+export function useFetchedTodos() {
   const [todos, setTodos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/todos?userId=${userId}`)
+    fetch(`${import.meta.env.VITE_APP_API_URL}/tasks`)
       .then((response) => response.json())
       .then((data) => {
         setTodos(data);
@@ -16,7 +16,7 @@ export function useFetchedTodos(userId) {
       .finally(() => {
         setIsLoading(false);
       });
-  }, [userId]);
+  }, []);
 
   return {
     todos,

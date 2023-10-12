@@ -1,13 +1,16 @@
-export function postNewTask(userId, taskTitle) {
+export function postNewTask(taskTitle, taskDescription) {
   const newTask = {
-    userId: userId,
     title: taskTitle,
-    completed: false,
+    description: taskDescription,
+    isCompleted: false,
   };
 
-  return fetch('https://jsonplaceholder.typicode.com/todos', {
+  return fetch(`${import.meta.env.VITE_APP_API_URL}/tasks`, {
     method: 'POST',
-    body: newTask,
+    body: JSON.stringify(newTask),
+    headers: {
+      'Content-Type': 'application/json',
+    },
   })
     .then((response) => response.json())
     .then((data) => {
