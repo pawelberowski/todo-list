@@ -16,7 +16,7 @@ export function useFetchedTodos() {
       .finally(() => {
         setIsLoading(false);
       });
-  }, []);
+  }, [todos]);
 
   return {
     todos,

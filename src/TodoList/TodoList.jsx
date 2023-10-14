@@ -2,7 +2,7 @@ import { useFetchedTodos } from './useFetchedTodos.jsx';
 import { useState } from 'react';
 import { postNewTask } from './AddTask/postNewTask.jsx';
 import { AddTask } from './AddTask/AddTask.jsx';
-import { TodoColumns } from './TodoColumns.jsx';
+import { TodoColumns } from './TodoColumns/TodoColumns.jsx';
 
 export const TodoList = () => {
   const { todos, setTodos, isLoading } = useFetchedTodos();
